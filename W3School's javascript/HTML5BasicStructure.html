@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title> 
+	</head>
+	<body>
+		<h1>This is a test</h1>
+		<p>
+			Enter a number : <input type="text" id="txtInput"><button onclick="checkInputNumber()">Check</button>
+		</p>
+		<p id="result"></p>
+	</body>
+	<script type="text/javascript">
+		function checkInputNumber() {
+			var input = parseInt(document.getElementById("txtInput").value, 10);
+			var result = document.getElementById("result");
+			result.innerHTML = (input > 0 && input < 10) ? "Input OK" : "Input Wrong";
+		}
+	</script>
+</html>
