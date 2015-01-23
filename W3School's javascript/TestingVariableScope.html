@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Test variable scope</title> 
+	</head>
+	<body>
+		<h1>Variable Scope Test</h1>
+		<button onclick="perform()">Click Me!</button>
+		<p id="result"></p>
+		<script>
+			var globalVariable = "I am globalVariable"; //variable declared inside script tag becomes global variable.
+			(function(){
+				autoglobalVariable = "I am autoglobalVariable"; // variable declared without using var becomes global automatically.
+			})();
+			function perform() {
+				var localVariable = "I am localVariable"; //variable declared inside a function has scope only to that function.
+				document.getElementById("result").innerHTML = localVariable + " " + globalVariable + " " + autoglobalVariable;
+			};
+		</script>
+	</body>
+</html>
