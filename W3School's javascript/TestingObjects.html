@@ -8,11 +8,14 @@
 				name: "Audi",
 				model: "A4",
 				color: "Black",
-				numberOfTyres: "4"
+				numberOfTyres: "4",
+				displayCar : function() {
+					return this.name + " " + this.model + " " + this.color + " " + this.numberOfTyres;
+				}
 			};
 			function displayCar() {
 				var carPara = document.getElementById("carObject");
-				carPara.innerHTML = car.name + " " + car.model + " " + car.color + " " + car.numberOfTyres;
+				carPara.innerHTML = car.displayCar();
 			}
 		</script>
 	</head>
