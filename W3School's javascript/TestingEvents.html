@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Test of Events</title> 
+		<script type="text/javascript">
+			function displayDate() {
+				document.getElementById("resultOnClick").innerHTML = new Date();
+			}
+			function displayChange() {
+				console.log("*");
+				document.getElementById("resultOnChange").innerHTML = document.getElementById("inputBox").value;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Events Test</h1>
+		<button onclick="displayDate()">Click Me!</button>
+		<input type="text" onkeydown="displayChange()" id="inputBox"></input>
+		<p id="resultOnClick"></p>
+		<p id="resultOnChange"></p>
+	</body>
+</html>
