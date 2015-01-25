@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing Arrays</title>
+	</head>
+	<body>
+		<h1>Testing Arrays</h1>
+		<p id="result1"></p>
+		<p id="result2"></p>
+		<script type="text/javascript">
+			var cars = ["Audi", "BMW", "Lamborghini"];
+			document.getElementById("result1").innerHTML = cars;
+
+			var differentArray = [];
+			differentArray[0] = Date();
+			differentArray[1] = "Harsh";
+			document.getElementById("result2").innerHTML = differentArray;
+
+			/*
+				typeof array -> object
+				typeof object -> object
+				To check the diff :-
+					array/object.constructor.toString().indexOf("Array/Object")
+					|_______________________|
+								|
+					will return the constructor function of array or object i.e.
+					function Array() {some native code} for array
+					function Object() {some native code} for object
+			*/
+		</script>
+	</body>
+</html>
