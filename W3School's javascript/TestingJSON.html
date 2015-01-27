@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing JSON</title> 
+	</head>
+	<body>
+		<p id="result1"></p>
+		<p id="result2"></p>
+		<p id="result3"></p>
+		<button onclick="dsiplayEmployeeDetail()">Click Me!</button>
+
+		<script type="text/javascript">
+			function dsiplayEmployeeDetail() {
+
+				var xmlhttp = new XMLHttpRequest();
+				var url = "http://validate.jsontest.com/?json=%7B%22key%22:%22value%22%7D";
+
+				xmlhttp.onreadystatechange = function() {
+					if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						//console.log("Hiii");
+						//employees = xmlhttp.responseText;
+						myFunction(xmlhttp.responseText);
+					}
+				};
+				xmlhttp.open("GET", url, true);
+				xmlhttp.send();
+
+				function myFunction(response){
+					var responseText = response;
+					//console.log(employees);
+					var responseTextObject = JSON.parse(responseText);
+
+					document.getElementById("result2").innerHTML = responseTextObject.empty;
+				}
+
+				var employee = '{"firstName": "Harsh", "lastName": "Sapra", "age": "21"}';
+				var employees = '{"employees": [\
+					{"firstName": "Harsh", "lastName": "Sapra"},\
+					{"firstName": "Bharat", "lastName": "Raj"},\
+					{"firstName": "Sarvanan", "lastName": "Kannan"}\
+				]}';
+
+				var personObject = JSON.parse(employee);
+				var personsObject = JSON.parse(employees);
+
+				document.getElementById("result1").innerHTML = personObject.firstName + " " +
+					personObject.lastName + " " + " is " + personObject.age + " years old!";
+
+				document.getElementById("result3").innerHTML = personsObject.employees[0].firstName;
+			}
+		</script>
+
+	</body>
+</html>
