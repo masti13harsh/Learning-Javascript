@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing Exceptional Handling</title> 
+	</head>
+	<body>
+		Enter a numbers: <input type="text" id="inputNumber">
+		<button id="buttonClicked" onclick="inputCheck()">Click Me!</button>
+		<p id="result"></p>
+
+		<script type="text/javascript">
+			function inputCheck() {
+				var x, message;
+				message = document.getElementById("result");
+				x = document.getElementById("inputNumber").value;
+
+				try {
+					if(x == "") throw "empty";
+					if(isNaN(x)) throw "not a number";
+					if(x > 10) throw "too Big";
+					if(x < 5) throw "too Small";
+				} catch(err) {
+					message.innerHTML = "Input is " + err;
+				}
+			}
+		</script>
+	</body>
+</html>
