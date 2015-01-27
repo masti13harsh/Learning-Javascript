@@ -22,6 +22,10 @@
 					if(x < 5) throw "too Small";
 				} catch(err) {
 					message.innerHTML = "Input is " + err;
+				} 				} finally {
+					document.getElementById("result2").innerHTML = "This is from finally block";
+				} finally {
+					document.getElementById("result2").innerHTML = "This is from finally block";
 				}
 			}
 		</script>
