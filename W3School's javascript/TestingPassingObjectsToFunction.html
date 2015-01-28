@@ -1,0 +1,45 @@
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>Testing passing objects to function</title> 
+		</head>
+		<body>
+			Enter name: <input type="text" id="nameInput"></input><br>
+			Enter age: <input type="text" id="ageInput"></input><br>
+			<button onclick="onButtonClick()">Click Me!</button>
+			<p id="result"></p>
+			<script type="text/javascript">
+				function changeAge(persons) {
+					//console.log(harsh);
+					var firstname = document.getElementById("nameInput").value;
+					var age = document.getElementById("ageInput").value;
+
+					for(var i = 0; i < persons.length; i++) {
+						if(persons[i].firstname == firstname) {
+							persons[i].age = age;
+							document.getElementById("result").innerHTML = persons[i].information();
+						}
+					}
+				}
+				function Person(firstname, lastName, age, tallness) { //Object Protorype
+					this.firstname = firstname;
+					this.lastName = lastName;
+					this.age = age;
+					this.tallness = tallness;
+				}
+				Person.prototype.information = function() {	//Using prototype keyword to add a new functionality to the Person prototype
+					return "Hi this is " + this.firstname + " " + this.lastName + " and I am " + this.age + " years old and " + this.tallness + "cm tall.";
+				}
+
+				harsh = new Person("Harsh", "Sapra", 22, 167);	//Using obect prototypes to declare new objects
+				bharat = new Person("Bharat", "Raj", 24, 165);
+
+				var persons = [harsh, bharat];
+
+				function onButtonClick() {
+					changeAge(persons);
+				}
+			</script>
+		</body>
+	</html>
