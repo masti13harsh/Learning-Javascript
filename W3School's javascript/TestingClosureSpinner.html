@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing Closures Spinner</title> 
+	</head>
+	<body>
+		<h1>Testing Closures Spinner</h1>
+		<button onclick="upButtonClicked()">Up</button>
+		<button onclick="downButtonClicked()">Down</button>
+		<p id="result"></p>
+
+		<script type="text/javascript">
+			var spinner = (function(){
+				var counter = 0;
+				var resultPara = document.getElementById("result");
+				function upButtonClicked() {
+					counter++;
+					resultPara.innerHTML = counter;
+				}
+				function downButtonClicked() {
+					counter--;
+					resultPara.innerHTML = counter;
+				}
+				return {
+					up: upButtonClicked,
+					down: downButtonClicked
+				}
+			})();
+
+			function upButtonClicked() {
+				spinner.up();
+			}
+
+			function downButtonClicked() {
+				spinner.down();
+			}
+		</script>
+
+	</body>
+</html>
