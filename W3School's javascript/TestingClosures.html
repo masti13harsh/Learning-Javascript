@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing Closures</title> 
+	</head>
+	<body>
+		<h1>Testing Closures</h1>
+		<button onclick="myFunction()">Add</button>
+		<p id="result"></p>
+
+		<script type="text/javascript">
+		/*
+			Closures are created in 5 steps:
+			1. Outer function
+			2. Variable in outer function
+			3. Inner function
+			4. Variable in inner function is reffered in outer function.
+			5. Extending the loifetime of inner function beyond the lifetime of outer function
+		*/
+		//Here  
+			var add = (function(){
+				var counter = 0;
+				return function() {
+					return counter++;
+				}
+			})();
+
+			function myFunction() {
+				document.getElementById("result").innerHTML = add();
+			}
+		</script>
+
+	</body>
+</html>
