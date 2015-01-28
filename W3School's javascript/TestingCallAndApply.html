@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing Call and Apply</title> 
+	</head>
+	<body>
+		<p id="result"></p>
+		<script type="text/javascript">
+			var Student = function(firstName, lastName, age, marks) {
+				this.firstName = firstName;
+				this.lastName = lastName;
+				this.age = age;
+				this.marks = marks;
+			}
+
+			function displayMarks() {
+				//console.log(arguments);
+				var marksString = "";
+				for(var i = 0; i < arguments.length; i++) {
+					marksString += " " + arguments[i];
+				}
+				document.getElementById("result").innerHTML = marksString;
+			}
+
+			var harsh = new Student("Harsh", "Sapra", 22, [90, 80, 70, 60, 50]);
+			//console.log(harsh.marks);
+
+			//var sampleMarksArray = [10, 20, 30, 40];
+			//displayMarks(sampleMarksArray);
+			
+			displayMarks.call(harsh, 1,2,3,4);
+			//displayMarks.apply(harsh, harsh.marks);
+
+		</script>
+	</body>
+</html>
